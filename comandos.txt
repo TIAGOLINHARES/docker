@@ -1,0 +1,49 @@
+video onde parou 
+
+topico 2 aula1
+
+
+
+comandos 
+
+docker run = roda a imagem
+docker exec -it 33b bash = acessa o terminal um container ja criado, 33b é o codigo do container
+docker run --name meu-site = roda a imagem e nomeia a mesma
+docker ps = lista os containers ja criados e que estão rodando
+docker ps -a = lista os containers ja criados
+docker run -it ubuntu = roda a imagem do ubuntu e não para a maquina, "interagindo" com o container
+docker start 05025384675e = inicia um container ja criado com o codigo como parametro
+docker stop 05025384675e = pausa um container ja criado com o codigo como parametro
+docker -t 0stop 05025384675e = pausa um container ja criado com o codigo como parametro, com 0 seguntos para execitar
+docker stop $(docker ps -q) = o comando docker ps -q mostra todas as chaves dos containers, a funcao retorna elas e o comando stop para as elas
+docker start -a -i a91 = inicia o container e atrela o terminal no mesmo, a91 e o codigo do container
+docker rm c9f83bfb82a8 = destroi o container com o codigo como parametro
+docker container prune = destroi todos os containers que estão em stop
+docker images = mostra todas as imagens baixadas
+docker rmi hello-world = remove uma imagem especifica "hello-world" é o nome da imagem
+docker run dockersamples/static-site = "esta imagem cria um site estatico, se não colcoar a flag -d, ele vai ficar travado no terminal"
+docker run -d dockersamples/static-site = cria o container e não fica dentro dele.
+docker run -d -P dockersamples/static-site = cria a imagem e atrela uma porta de acesso com uma porta aleatoria, com a flag -P 
+docker run -d -p 12345:80 dockersamples/static-site = cria a imagem e atrela uma porta fixo de acesso
+docker port a63 = mostra a porta que esta rodando na maquina a63
+docker run -d -P -e AUTHOR="Douglas Q" dockersamples/static-site = cria uma variavel de ambiente e atrela o valor "Douglas Q"
+docker run -v "/var/www" ubuntu = cria uma maquina e coloca o diretorio "/var/www" como diretorio de volume 
+docker inspect 8cf7b40ce226 = mostra todos os parametros usados para criar a maquina
+docker run -it -v "D:\devops\docker:/var/www" ubuntu =  cria uma maquina e coloca o diretorio "/var/www" como diretorio de volume e relaciona o diretorio da maquina local onde os arquivos serao salvos
+docker run -p 8080:3000 -v "D:\devops\docker:/var/www" -w "/var/www" node npm start = cria a maquina na porta 8080, passa o caminho do volume das 2 maquinas e aplica o comando node npm start, -w é a flag para definir onde aplica o comando
+
+
+
+docker build -f Dockerfile.dockerfile -t tiago/node = cria a imagem criada com arquivo dockerfile com o nome da imagem de tiago/node
+docker run -d -p 8080:3000 tiago/node = criar container com a imagem que criamos com dockerfile, atrelando a porta 8080 com a 3000 que foi sertada na aplicação e nomeando como tiago/node
+
+docker login - loga com credencial no docker hub
+docker push = sobre a imagem para o dockerhub
+docker pull tiagolinhares/img = baixa a imagem do dockerhub
+
+docker network create --driver bridge minha-rede = cria uma rede para os containers se comunicarem, to tipo bridge de nome "minha rede"
+docker network ls = exibe todas as redes criadas 
+docker run -it --name meu-container-de-ubuntu --network minha-rede ubuntu = cria o container dentro da rede ja criada
+
+docker-compose build = builda as imagens que estao no arquivo docker compose "é preciso instalar o docker compose, comando esta no git da docker"
+docker-compose up  -d = sobe as imagens que estão no arquivo docker compose 
