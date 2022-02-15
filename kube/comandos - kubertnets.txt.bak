@@ -1,0 +1,12 @@
+
+
+kubectl get nodes = retorna informações dos cluster, "nós"
+kubectl run nginx-pod --image=nginx:latest = cria um pode com a imagem mais atualziada do nginx e nomeia como "nginx-pod"
+kubectl get pods = retorna informações dos pods ativos
+kubectl get pods --watch = fica assistido o proceso de criação do pod
+kubectl describe pod nginx-pod = mostra toda configuração da criação do pod nginx-pod
+kubectl edit pod nginx-pod = edita o arquido de configuração do pod
+kubectl apply -f  .\primeiro-pod.yml = cria um pod a partir de um arquivo yaml, precisa estar dentro da pasta do arquivo
+kubectl delete -f primeiro-pod.yml = destroi pod criado
+kubectl exec -it portal-noticias -- bash = entra na maquina criada "precisa ser com power shell"
+ 
